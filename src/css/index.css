@@ -1,0 +1,615 @@
+:root {
+  /* color */
+  --color-black: #000;
+  --color-white: #fff;
+
+  --title-size: 90px;
+  --explain-size: 50px;
+  --explain-title-sub: 45px;
+  --msg-size: 100px;
+
+  /* size */
+  --img-width: 850px;
+  --img-hegiht: 600px;
+
+  --prompt-width: 800px;
+  --prompt-height: 600px;
+
+  --select-title-size: 80px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+}
+
+section.image-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+section.result {
+  display: flex;
+  flex-direction: column;
+}
+
+section.prompt {
+  height: var(--prompt-hegiht);
+  width: var(--prompt-width);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prompt-area {
+  width: 100%;
+}
+
+section.prompt .msg h1 {
+  font-size: var(--msg-size);
+  font-weight: 500;
+}
+
+ul li {
+  color: var(--color-white);
+}
+
+img {
+  width: var(--img-width);
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+button {
+  height: 70px;
+  width: 280px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  letter-spacing: 0.2em;
+  text-align: center;
+  padding: 10px 15px;
+  margin: 10px;
+  background: red;
+  background-color: #efefef;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+button:hover {
+  color: #fff;
+  background-color: #030133;
+}
+
+.bg-black {
+  background-color: var(--color-black);
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.result > div {
+  color: white;
+  font-size: 25px;
+}
+
+.modal {
+  width: 100%;
+  height: 100%;
+}
+
+.modal .explain-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal .explain-box ul {
+  padding: 100px 150px 100px 170px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal .explain-box ul li.explain-title,
+.modal .explain-box ul li.explain-title-100,
+.modal section.title-box ul li.title-main {
+  font-size: var(--title-size);
+  text-align: left;
+  font-weight: 500;
+  list-style: none;
+}
+
+.modal .explain-box ul li.explain-title-100,
+.modal section.title-box ul li.title-main {
+  margin-bottom: 100px;
+}
+
+.modal .explain-box ul li.explain-explain,
+.modal section.title-box ul li.title-sub {
+  font-size: var(--explain-size);
+  font-weight: 100;
+  text-align: left;
+  margin-bottom: 100px;
+}
+
+.modal .explain-box ul li.explain-explain:last-child {
+  margin-bottom: 0px;
+}
+
+.modal section.title-box,
+.modal section.sub-title-box,
+.modal section.prompt {
+  width: 100%;
+  height: 100vh;
+}
+
+.modal section.title-box ul {
+  padding: 100px 150px 100px 150px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  list-style: none;
+  align-items: center;
+}
+
+.modal section.sub-title-box ul {
+  padding: 100px 150px 100px 150px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.modal section.sub-title-box ul li.title-sub-explain {
+  font-size: var(--explain-title-sub);
+  text-align: left;
+  padding: 10px;
+}
+
+.button {
+  color: #8d8d8d;
+  padding: 50px;
+  cursor: pointer;
+}
+
+.button:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  font-size: 80px;
+  font-weight: 500;
+  width: 100%;
+  margin-top: 180px;
+}
+
+.score-container,
+.assess-container {
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+}
+
+.score-text-box,
+.assess-text-box {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.score-title-box,
+.assess-title-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-title-box .score-title h2,
+.assess-title-box .assess-title h2 {
+  width: 100%;
+  color: #fff;
+  padding: 150px 100px;
+  font-size: 40px;
+}
+
+.score-text {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.score-text p {
+  line-height: 0;
+  margin: 18px;
+  color: #fff;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.score-line-box {
+  background: #000;
+  width: 100%;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.score-line-top,
+.score-line-bottom {
+  width: 95%;
+  height: 12px;
+  display: flex;
+  flex-direction: row;
+}
+
+.top-box {
+  width: 100%;
+  display: inline-block;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+}
+
+.score-line-top .top-box:first-child,
+.score-line-bottom .bottom-box:first-child {
+  border-left: 2px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.score-line-top .top-box:last-child {
+  border-bottom: 1px solid #000;
+}
+
+.bottom-box {
+  width: 100%;
+  display: inline-block;
+  border-left: 2px solid #fff;
+}
+
+.score-radio-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.score-radio-box .area {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+}
+
+.score-radio-box .area div {
+  width: 100%;
+  display: inline-block;
+  border: 1px solid #000;
+  position: relative;
+}
+
+.score-radio-box .area div input {
+  position: absolute;
+  left: -12px;
+}
+
+.score-title-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-title-box div h1 {
+  width: 100%;
+  color: #fff;
+  padding: 150px 100px;
+  font-size: 40px;
+}
+
+.score-line-box,
+.assess-line-box {
+  background: #000;
+  width: 100%;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.score-line-top,
+.score-line-bottom,
+.assess-line-top,
+.assess-line-bottom {
+  width: 95%;
+  height: 12px;
+  display: flex;
+  flex-direction: row;
+}
+
+.top-box {
+  width: 100%;
+  display: inline-block;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+}
+
+.score-line-top .top-box:first-child,
+.score-line-bottom .bottom-box:first-child,
+.assess-line-top .top-box:first-child,
+.assess-line-bottom .bottom-box:first-child {
+  border-left: 2px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.score-line-top .top-box:last-child,
+.assess-line-top .top-box:last-child {
+  border-bottom: 1px solid #000;
+}
+
+.bottom-box {
+  width: 100%;
+  display: inline-block;
+  border-left: 2px solid #fff;
+}
+
+.score-radio-box,
+.assess-radio-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.score-radio-box .area,
+.assess-radio-box .area {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+}
+
+.score-radio-box .area div,
+.assess-radio-box .area div {
+  width: 100%;
+  display: inline-block;
+  border: 1px solid #000;
+  position: relative;
+}
+
+.score-radio-box .area div input,
+.assess-radio-box .area div input {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: -9px;
+}
+
+.assess-radio-box .area div input {
+  position: absolute;
+  left: -12px;
+}
+
+.assess-text-group {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  margin-left: -118px;
+}
+
+.assess-text {
+  width: 100%;
+  display: inline-block;
+}
+
+.assess-radio-box .area div {
+  width: 100%;
+  display: inline-block;
+  border: 1px solid #000;
+  position: relative;
+}
+
+.assess-radio-box .area div input {
+  position: absolute;
+  left: -12px;
+}
+
+.assess-text {
+  width: 100%;
+  display: inline-block;
+}
+
+.assess-text p {
+  line-height: 0;
+  color: #fff;
+  font-size: 25px;
+  font-weight: 500;
+  height: 15px;
+  margin-top: 113px;
+  width: 100%;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --title-size: 40px;
+    --msg-size: 100px;
+    --explain-size: 23px;
+    --explain-title-sub: 21px;
+    --select-title-size: 80px;
+
+    /* size */
+    --img-width: 500px;
+  }
+
+  .modal .explain-box ul {
+    padding: 100px 100px 100px 100px;
+  }
+
+  .modal .explain-box ul li.explain-title-100,
+  .modal section.title-box ul li.title-main {
+    margin-bottom: 40px;
+  }
+  .modal .explain-box ul li.explain-explain,
+  .modal section.title-box ul li.title-sub {
+    margin-bottom: 40px;
+  }
+  .modal section.sub-title-box ul {
+    padding: 100px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .modal section.title-box ul {
+    padding: 60px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    list-style: none;
+    align-items: center;
+  }
+
+  .msg h1 {
+    font-size: 50px !important;
+  }
+
+  .buttons {
+    font-size: 50px;
+    margin-top: 60px;
+  }
+
+  .score-title-box .score-title h2,
+  .assess-title-box .assess-title h2 {
+    padding: 100px;
+    font-size: 22px;
+  }
+
+  .score-text p {
+    margin: 12px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  :root {
+    --title-size: 50px;
+    --msg-size: 100px;
+    --explain-size: 32px;
+    --explain-title-sub: 25px;
+    --select-title-size: 80px;
+
+    /* size */
+    --img-width: 600px;
+  }
+
+  .modal section.sub-title-box ul {
+    padding: 100px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .modal .explain-box ul {
+    padding: 100px 100px 100px 120px;
+  }
+
+  .modal .explain-box ul li.explain-title-100,
+  .modal section.title-box ul li.title-main {
+    margin-bottom: 50px;
+  }
+  .modal .explain-box ul li.explain-explain,
+  .modal section.title-box ul li.title-sub {
+    margin-bottom: 50px;
+  }
+
+  .buttons {
+    font-size: 55px;
+    margin-top: 140px;
+  }
+
+  .msg h1 {
+    font-size: 60px !important;
+  }
+
+  .score-title-box .score-title h2,
+  .assess-title-box .assess-title h2 {
+    padding: 128px;
+    font-size: 33px;
+  }
+
+  .score-text p {
+    margin: 13px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1280px) and (min-width: 1025px) {
+  body {
+    background-color: rgb(77, 77, 229);
+  }
+  :root {
+    --title-size: 60px;
+    --msg-size: 100px;
+    --explain-size: 32px;
+    --explain-title-sub: 45px;
+    --select-title-size: 80px;
+
+    /* size */
+    --img-width: 600px;
+  }
+
+  .modal section.sub-title-box ul {
+    padding: 100px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 1281px) and (max-width: 1380px) {
+  body {
+    background-color: rgb(152, 222, 143);
+  }
+  :root {
+    --title-size: 75px;
+    --explain-title-sub: 40px;
+  }
+}
