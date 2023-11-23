@@ -613,3 +613,17 @@ button:hover {
     --explain-title-sub: 40px;
   }
 }
+
+@media (min-width: 1381px) and (max-width: 1480px) {
+  :root {
+    --title-size: 75px;
+    --explain-title-sub: 40px;
+  }
+}
+
+@media (min-width: 1481px) and (max-width: 1580px) {
+  :root {
+    --title-size: 75px;
+    --explain-title-sub: 40px;
+  }
+}
