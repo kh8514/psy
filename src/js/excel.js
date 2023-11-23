@@ -113,6 +113,10 @@ const Exclude = () => {
       right: { style: "thin" },
     };
 
+    if (data.length === 0) {
+      alert("데이터가 없습니다.");
+      reutn;
+    }
     data.map((item, index) => {
       sheetOne.addRow(item);
 
